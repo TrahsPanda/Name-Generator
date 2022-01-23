@@ -39,11 +39,11 @@ namespace NameGenerator
             Console.WriteLine("Welcome to TrahsPanda's Random Name Generator!\nHow many names would you like to generate?");
             int namesToGenerate = Convert.ToInt32(Console.ReadLine());
             int namesGoal = 0;
-            watch.Start();
             Console.Clear();
             Console.WriteLine("Please wait...");
             for (int i = 0; i < namesToGenerate; i++)
             {
+                watch.Start();
                 int firstDecider = random.Next(6);
                 int secondDecider = random.Next(4);
 
