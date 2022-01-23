@@ -6,8 +6,11 @@ namespace NameGenerator
     class NameGenerator
     {
         public static Stopwatch watch = new Stopwatch();
+        public static double seconds = 0;
+        public static double minutes = 0;
 
         public static Random random = new Random();
+
         public static TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
 
         public static string[] con = new string[] { "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z" };
@@ -36,7 +39,11 @@ namespace NameGenerator
         public static void Main()
         {
             Create();
-            Console.WriteLine("Welcome to TrahsPanda's Random Name Generator!\nHow many names would you like to generate?");
+            Console.WriteLine("Welcome to TrahsPanda's Random Name Generator!\n");
+            Console.WriteLine("==================== IMPORTANT INFORMATION ====================");
+            Console.WriteLine("This program generates first and last names.\nIf you want to generate 100 names, you will generate 100 first and last names.\nNames are stored at c:/tmp in two text files.");
+            Console.WriteLine("===============================================================\n");
+            Console.WriteLine("Knowing all of this, how many names would you like to generate?");
             int namesToGenerate = Convert.ToInt32(Console.ReadLine());
             int namesGoal = 0;
             Console.Clear();
@@ -50,13 +57,13 @@ namespace NameGenerator
                 // FIRST NAMES
                 if (firstDecider == 0) // CVCCVCC 
                 {
-                    int conIndex = random.Next(conLength); 
-                    int vowIndex = random.Next(vowLength); 
-                    int conIndex1 = random.Next(conLength); 
-                    int conIndex2 = random.Next(conLength); 
-                    int vowIndex1 = random.Next(vowLength); 
-                    int conIndex3 = random.Next(conLength); 
+                    int conIndex = random.Next(conLength);
+                    int conIndex1 = random.Next(conLength);
+                    int conIndex2 = random.Next(conLength);
+                    int conIndex3 = random.Next(conLength);
                     int conIndex4 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength); 
+                    int vowIndex1 = random.Next(vowLength); 
                     firstName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + con[conIndex1] + con[conIndex2] + vow[vowIndex1] + con[conIndex3] + con[conIndex4]);
                     using (StreamWriter sw = File.AppendText(path1))
                     {
@@ -66,10 +73,10 @@ namespace NameGenerator
                 else if (firstDecider == 1) // CVCVC
                 {
                     int conIndex = random.Next(conLength);
-                    int vowIndex = random.Next(vowLength);
                     int conIndex1 = random.Next(conLength);
-                    int vowIndex1 = random.Next(vowLength);
                     int conIndex2 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
+                    int vowIndex1 = random.Next(vowLength);
                     int vowIndex2 = random.Next(vowLength);
                     firstName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + con[conIndex1] + vow[vowIndex1] + con[conIndex2] + vow[vowIndex2]);
                     using (StreamWriter sw = File.AppendText(path1))
@@ -80,9 +87,9 @@ namespace NameGenerator
                 else if (firstDecider == 2) // CVCC
                 {
                     int conIndex = random.Next(conLength);
-                    int vowIndex = random.Next(vowLength);
                     int conIndex1 = random.Next(conLength);
                     int conIndex2 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
                     firstName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + con[conIndex1] + con[conIndex2]);
                     using (StreamWriter sw = File.AppendText(path1))
                     {
@@ -92,8 +99,8 @@ namespace NameGenerator
                 else if (firstDecider == 3) // CVC
                 {
                     int conIndex = random.Next(conLength);
-                    int vowIndex = random.Next(vowLength);
                     int conIndex1 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
                     firstName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + con[conIndex1]);
                     using (StreamWriter sw = File.AppendText(path1))
                     {
@@ -102,8 +109,8 @@ namespace NameGenerator
                 }
                 else if (firstDecider == 4) // VCV
                 {
-                    int vowIndex = random.Next(vowLength);
                     int conIndex = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
                     int vowIndex1 = random.Next(vowLength);
                     firstName = ti.ToTitleCase(vow[vowIndex] + con[conIndex] + vow[vowIndex1]);
                     using (StreamWriter sw = File.AppendText(path1))
@@ -114,8 +121,8 @@ namespace NameGenerator
                 else if (firstDecider == 5) // C 2V CV
                 {
                     int conIndex = random.Next(conLength);
-                    int vowIndex = random.Next(vowLength);
                     int conIndex1 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
                     int vowIndex1 = random.Next(vowLength);
                     firstName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + vow[vowIndex] + con[conIndex1] + vow[vowIndex1]);
                     using (StreamWriter sw = File.AppendText(path1))
@@ -127,26 +134,57 @@ namespace NameGenerator
                 // LAST NAMES
                 if (secondDecider == 0) // CCVCCVCCVC
                 {
-
+                    int conIndex = random.Next(conLength);
+                    int conIndex1 = random.Next(conLength);
+                    int conIndex2 = random.Next(conLength);
+                    int conIndex3 = random.Next(conLength);
+                    int conIndex4 = random.Next(conLength);
+                    int conIndex5 = random.Next(conLength);
+                    int conIndex6 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
+                    int vowIndex1 = random.Next(vowLength);
+                    int vowIndex2 = random.Next(vowLength);
+                    lastName = ti.ToTitleCase(con[conIndex] + con[conIndex1] + vow[vowIndex] + con[conIndex2] + con[conIndex3] + vow[vowIndex1] + con[conIndex4] + con[conIndex5] + vow[vowIndex2] + con[conIndex6]);
+                    using (StreamWriter sw = File.AppendText(path2))
+                    {
+                        sw.WriteLine(lastName);
+                    }
                 }
-                else if (secondDecider == 1) // CC V2 CC
+                else if (secondDecider == 1) // CC 2V CC
                 {
-
+                    int conIndex = random.Next(conLength);
+                    int conIndex1 = random.Next(conLength);
+                    int conIndex2 = random.Next(conLength);
+                    int conIndex3 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
+                    lastName = ti.ToTitleCase(con[conIndex] + con[conIndex1] + vow[vowIndex] + vow[vowIndex] + con[conIndex2] + con[conIndex3]);
+                    using (StreamWriter sw = File.AppendText(path2))
+                    {
+                        sw.WriteLine(lastName);
+                    }
                 }
                 else if (secondDecider == 2) // CCVCC
                 {
-
+                    int conIndex = random.Next(conLength);
+                    int conIndex1 = random.Next(conLength);
+                    int conIndex2 = random.Next(conLength);
+                    int conIndex3 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
+                    lastName = ti.ToTitleCase(con[conIndex] + con[conIndex1] + vow[vowIndex] + con[conIndex2] + con[conIndex3]);
+                    using (StreamWriter sw = File.AppendText(path2))
+                    {
+                        sw.WriteLine(lastName);
+                    }
                 }
                 else if (secondDecider == 3) // VCCVCV
                 {
                     int vowIndex = random.Next(vowLength);
                     int conIndex = random.Next(conLength);
                     int conIndex1 = random.Next(conLength);
-                    int conIndex2 = random.Next(conLength);
                     int vowIndex1 = random.Next(vowLength);
                     int conIndex3 = random.Next(conLength);
                     int vowIndex2 = random.Next(vowLength);
-                    lastName = ti.ToTitleCase(vow[vowIndex] + con[conIndex] + con[conIndex1] + con[conIndex2] + vow[vowIndex1] + con[conIndex3] + vow[vowIndex2]);
+                    lastName = ti.ToTitleCase(vow[vowIndex] + con[conIndex] + con[conIndex1] + vow[vowIndex1] + con[conIndex3] + vow[vowIndex2]);
                     using (StreamWriter sw = File.AppendText(path2))
                     {
                         sw.WriteLine(lastName);
@@ -154,18 +192,45 @@ namespace NameGenerator
                 }
                 else if (secondDecider == 4) // CV 2C VVCC
                 {
-
+                    int conIndex = random.Next(conLength);
+                    int conIndex1 = random.Next(conLength);
+                    int conIndex2 = random.Next(conLength);
+                    int conIndex3 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
+                    int vowIndex1 = random.Next(vowLength);
+                    int vowIndex2 = random.Next(vowLength);
+                    lastName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + con[conIndex1] + con[conIndex1] + vow[vowIndex1] + vow[vowIndex2] + con[conIndex2] + con[conIndex3]);
+                    using (StreamWriter sw = File.AppendText(path2))
+                    {
+                        sw.WriteLine(lastName);
+                    }
                 }
                 else if (secondDecider == 5) // CV 2C VC
                 {
-
+                    int conIndex = random.Next(conLength);
+                    int conIndex1 = random.Next(conLength);
+                    int conIndex2 = random.Next(conLength);
+                    int vowIndex = random.Next(vowLength);
+                    int vowIndex1 = random.Next(vowLength);
+                    lastName = ti.ToTitleCase(con[conIndex] + vow[vowIndex] + con[conIndex1] + con[conIndex1] + vow[vowIndex1] + con[conIndex2]);
+                    using (StreamWriter sw = File.AppendText(path2))
+                    {
+                        sw.WriteLine(lastName);
+                    }
                 }
 
                 namesGoal++;
                 if (watch.Elapsed.TotalSeconds > 1)
-                {
+                {;
+                    seconds++;
                     Console.Clear();
-                    Console.WriteLine("You have printed " + namesGoal + " out of " + namesToGenerate);
+                    Console.WriteLine("You have printed {0} out of {1} names", namesGoal, namesToGenerate);
+                    if (seconds == 60)
+                    {
+                        minutes++;
+                        seconds = 0;
+                    }
+                    Console.WriteLine("Time elapsed: {0}m {1}s", minutes, seconds);
                     watch.Reset();
                 }
 
