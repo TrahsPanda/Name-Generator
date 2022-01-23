@@ -123,7 +123,6 @@ namespace NameGenerator
                         sw.WriteLine(firstName);
                     }
                 }
-                Console.Write(" ");
 
                 // LAST NAMES
                 if (secondDecider == 0) // CVCCVCC 
@@ -183,7 +182,7 @@ namespace NameGenerator
                     }
                 }
                 namesGoal++;
-                if (watch.Elapsed.TotalSeconds > 5)
+                if (watch.Elapsed.TotalSeconds > 2)
                 {
                     Console.Clear();
                     Console.WriteLine("You have printed " + namesGoal + " out of " + namesToGenerate);
