@@ -22,10 +22,13 @@ namespace NameGenerator
         public static string? lastName;
         public static string path1 = @"c:\tmp\FirstNames.txt";
         public static string path2 = @"c:\tmp\LastNames.txt";
+        public static string root = @"c:\tmp";
 
         // Creates a FirstNames.txt and LastNames.txt if not already existing
         public static void Create()
         {
+            if (!Directory.Exists(root))
+                Directory.CreateDirectory(root);
             if (!File.Exists(path1))
             {
                 using StreamWriter sw = File.CreateText(path1);
